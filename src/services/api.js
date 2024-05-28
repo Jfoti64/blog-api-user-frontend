@@ -71,3 +71,25 @@ export const signup = async (user) => {
     throw error;
   }
 };
+
+export const login = async (user_name, password) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ user_name, password }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+    return data; // Assuming the response contains the token and user
+  } catch (error) {
+    console.error('Failed to login:', error);
+    throw error;
+  }
+};

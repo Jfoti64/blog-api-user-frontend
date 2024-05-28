@@ -1,8 +1,7 @@
-// src/pages/Login.jsx
 import { useState, useContext } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { login as loginApi } from '../services/api';
 
 const Login = () => {
   const { login } = useContext(AuthContext);
@@ -13,8 +12,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', { user_name, password });
-      const { token, user } = response.data;
+      const { token, user } = await loginApi(user_name, password);
       login(token, user);
       navigate('/'); // Redirect to the home page or another protected page
     } catch (error) {
