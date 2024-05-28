@@ -27,7 +27,7 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/blog-api-user-frontend.git
+   git clone https://github.com/Jfoti64/blog-api-user-frontend
    cd blog-api-user-frontend
    ```
 
@@ -42,10 +42,8 @@ Before you begin, ensure you have met the following requirements:
 Create a `.env` file in the root directory of the project and add the following environment variable:
 
 ```plaintext
-VITE_API_BASE_URL=http://localhost:3000
+VITE_API_BASE_URL=https://ash-aged-responsibility.glitch.me/
 ```
-
-Replace `http://localhost:3000` with the URL of your Blog API backend.
 
 ### Running the Application
 
@@ -55,7 +53,7 @@ To start the development server:
 npm run dev
 ```
 
-The application will be available at `http://localhost:5173`.
+The application will be available at `URL`.
 
 ### Building for Production
 
@@ -66,10 +64,6 @@ npm run build
 ```
 
 The built files will be in the `dist` directory.
-
-### Deployment
-
-To deploy the built files, you can serve the contents of the `dist` directory using any static site hosting service.
 
 ## Project Structure
 
@@ -100,14 +94,4 @@ The application interacts with the following API endpoints provided by the Blog 
 - `GET /posts/:id`: Retrieve a specific blog post by ID.
 - `POST /posts/:id/comments`: Add a comment to a specific blog post (requires authentication).
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
 ---
-
-Feel free to customize this template as needed for your project.
