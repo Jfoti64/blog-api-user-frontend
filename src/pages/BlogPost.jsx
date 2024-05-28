@@ -1,7 +1,8 @@
-// BlogPost.jsx
+// src/pages/BlogPost.jsx
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchBlogById } from '../services/api';
+import CommentForm from '../components/CommentForm';
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -39,6 +40,7 @@ const BlogPost = () => {
     <div>
       <h2>{blog.title}</h2>
       <p>{blog.post_text}</p>
+      <CommentForm blogId={id} />
       <ul>
         {blog.comments.map((comment) => (
           <li key={comment.id}>
