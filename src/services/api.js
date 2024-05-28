@@ -37,7 +37,7 @@ export const addComment = async (blogId, comment) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+        Authorization: `Bearer ${token}`, // Include the token in the Authorization header
       },
       body: JSON.stringify(comment),
     });
@@ -48,6 +48,26 @@ export const addComment = async (blogId, comment) => {
     return response.json();
   } catch (error) {
     console.error(`Failed to add comment to blog with id ${blogId}:`, error);
+    throw error;
+  }
+};
+
+export const signup = async (user) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    });
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Network response was not ok');
+    }
+    return response.json();
+  } catch (error) {
+    console.error('Failed to sign up:', error);
     throw error;
   }
 };

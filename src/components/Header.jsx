@@ -20,7 +20,10 @@ const Header = () => {
         {auth.token ? (
           <button onClick={handleLogout}>Logout</button>
         ) : (
-          <Link to="/login">Login</Link>
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link> {/* Add Signup link */}
+          </>
         )}
       </nav>
     </header>
