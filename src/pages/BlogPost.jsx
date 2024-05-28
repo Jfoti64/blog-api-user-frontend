@@ -43,8 +43,8 @@ const BlogPost = () => {
       <CommentForm blogId={id} />
       <ul>
         {blog.comments.map((comment) => (
-          <li key={comment.id}>
-            <h3>{comment.title}</h3>
+          <li key={comment._id}>
+            <h3>{comment.user.user_name}</h3>
             <p>{comment.comment_text}</p>
           </li>
         ))}
