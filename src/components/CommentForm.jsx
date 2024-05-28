@@ -1,5 +1,6 @@
 // src/components/CommentForm.jsx
 import { useState, useContext } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes for prop validation
 import { AuthContext } from '../context/AuthContext';
 import { addComment } from '../services/api';
 
@@ -42,6 +43,10 @@ const CommentForm = ({ blogId }) => {
       {error && <div>Error: {error}</div>}
     </div>
   );
+};
+
+CommentForm.propTypes = {
+  blogId: PropTypes.string.isRequired, // Validate that blogId is a required string
 };
 
 export default CommentForm;
